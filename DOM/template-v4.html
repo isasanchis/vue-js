@@ -1,0 +1,28 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<!--TEMPLATE-->
+<div id="app">
+    <p>{{ titulo }}</p> <!--double {} para alterar o texto a partir da instância-->
+    <p>{{ saudacao() }}</p>
+    <a v-bind:href="link">Google</a> <!--diretiva "v-bind", faz a conexão com a instancia Vue para PROPRIEDADES de tags HTML, neste caso, o href-->
+    <!--diretiva é uma propriedade personalizada, que não é nativa do HTML, mas que o HTML5 permite que adicionemos novas propriedades-->
+</div>
+<!---->
+
+<script>
+    // Instanciamos o Vue a partir da função construtora:
+    // Passaremos uma série de parâmetros para essa função:
+    new Vue({ 
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS!',
+            link: 'http://google.com.br'
+        },
+        methods: {
+            saudacao:  function() {
+                console.log(this)
+                return this.titulo 
+            }
+        }
+    })
+</script>

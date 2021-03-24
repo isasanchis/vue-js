@@ -1,0 +1,45 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <button v-on:click="aumentar">Aumentar</button>
+    <button v-on:click="contador2++">Aumentar 2</button>
+    <button v-on:click="diminuir">Diminuir</button>
+    <p>Contador: {{ contador }} | {{ contador2 }}</p>
+    <p>Resultado: {{ resultado }}</p>
+</div>
+
+<script>
+    new Vue({
+      el: '#app',
+      data: {
+          contador: 0,
+          contador2: 0,
+        },
+        computed: {
+            resultado() {
+                return this.contador >= 5 ? 'Maior ou igual a 5' : 'Menor que 5'
+            } //propriedade computada chama como propriedade(sem chamar como função no template), só é chamado quando necessário recalcular o valor
+            // Dados computados existem com o objetivo de armazenar campos que são calculados (em cache). Quase como um getter do JavaScript. Como se fosse uma propriedade. Dessa maneira escondemos o fato de que há algum tipo de processamento por trás do acesso dessa propriedade
+            //propriedades computadas são síncronas = quando chama a propriedade, tem que obrigatoriamente retornar o valor
+        },
+        watch: {
+            contador(novo, antigo) {
+                setTimeout(() => {
+                    this.contador = 0
+                }, 2000) //watch é assíncrono, não precisa de uma resposta imediata
+            }
+        },
+        methods: {
+            aumentar() {
+                this.contador++
+            },
+            diminuir() {
+                this.contador--
+            },
+            // resultado() {
+            //     console.log('método resultado chamado..')
+            //     return this.contador >= 5 ? 'Maior ou igual a 5' : 'Menor que 5'
+            // }
+        }
+    })
+</script>
