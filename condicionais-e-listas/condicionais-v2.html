@@ -5,7 +5,7 @@
     <p v-if="logado">Usuário Logado: {{nome}}</p> <!--prioridade acima dos "else"-->
     <p v-else-if="anonimo">Navegando como Anônimo</p>
     <p v-else>Nenhum usuário logado</p>
-    <button @click="logado = !logado">
+    <button @click="logado = !logado"> <!-- v-on: @ -->
         {{logado ? 'Sair' : 'Entrar'}}</button>
     <input type="checkbox" v-model="anonimo">
   
