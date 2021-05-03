@@ -1,11 +1,12 @@
 <template>
     <div class="contadores">
+        <h1>Contadores</h1>
         <app-contador v-for="c in 5" :key="c" />
     </div>
 </template>
 
 <script>
-import contador from './Contador.vue'
+import Contador from './Contador.vue'
 
 export default {
     components: { 'app-contador': Contador}
@@ -13,5 +14,4 @@ export default {
 </script>
 
 <style>
-
 </style>

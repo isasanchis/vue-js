@@ -24,7 +24,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped> /**fica apenas dentro do componente**/
     .contador span {
         border-bottom: 1px solid #CCC;
         height: 30px;
