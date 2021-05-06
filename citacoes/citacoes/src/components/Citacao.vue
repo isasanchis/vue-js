@@ -1,12 +1,14 @@
 <template>
     <div class="citacao">
+        <slot name="autor"></slot>
         <slot></slot>
+        <div class="autor"><slot name="fonte"></slot></div>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['texto']
+    
 }
 </script>
 
@@ -16,5 +18,9 @@ export default {
         background-color: rgba(0, 0, 0, .1);
         padding: 25px;
         max-width: 450px;
+    }
+
+    .autor {
+        float: right;
     }
 </style>
